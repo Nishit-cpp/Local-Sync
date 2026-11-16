@@ -1,0 +1,235 @@
+{% extends "base.html" %}
+
+{% block title %}
+LocalSync · Products
+{% endblock %}
+
+
+{% block content %}
+
+<header class="page-header">
+
+    <div>
+
+        <div class="eyebrow">
+            INVENTORY
+        </div>
+
+        <h1>
+            Products
+        </h1>
+
+        <p>
+            Keep track of the products your customers buy.
+        </p>
+
+    </div>
+
+
+    <button
+        class="primary-button"
+        onclick="openProductModal()"
+    >
+        + Add product
+    </button>
+
+</header>
+
+
+<section class="panel">
+
+    <div class="toolbar">
+
+        <div class="search-box">
+
+            <span>⌕</span>
+
+            <input
+                id="productSearch"
+                placeholder="Search products..."
+                oninput="loadProducts()"
+            >
+
+        </div>
+
+        <span
+            id="productTotal"
+            class="toolbar-info"
+        >
+            0 products
+        </span>
+
+    </div>
+
+
+    <div class="product-grid" id="productsGrid">
+
+    </div>
+
+</section>
+
+
+<div
+    id="productModal"
+    class="modal hidden"
+>
+
+    <div class="modal-card">
+
+        <div class="modal-header">
+
+            <div>
+
+                <div class="eyebrow">
+                    INVENTORY ITEM
+                </div>
+
+                <h2>
+                    Add product
+                </h2>
+
+            </div>
+
+            <button
+                class="close-button"
+                onclick="closeProductModal()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form
+            onsubmit="createProduct(event)"
+        >
+
+            <label>
+                Product name
+
+                <input
+                    id="productName"
+                    required
+                    placeholder="e.g. Aashirvaad Atta 10kg"
+                >
+
+            </label>
+
+
+            <label>
+                Category
+
+                <select id="productCategory">
+
+                    <option>
+                        Staples
+                    </option>
+
+                    <option>
+                        Dairy
+                    </option>
+
+                    <option>
+                        Beverages
+                    </option>
+
+                    <option>
+                        Cooking Oil
+                    </option>
+
+                    <option>
+                        Snacks
+                    </option>
+
+                    <option>
+                        Grocery
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <div class="form-row">
+
+                <label>
+                    Price (₹)
+
+                    <input
+                        id="productPrice"
+                        type="number"
+                        min="1"
+                        required
+                    >
+
+                </label>
+
+
+                <label>
+                    Stock
+
+                    <input
+                        id="productStock"
+                        type="number"
+                        min="0"
+                        required
+                    >
+
+                </label>
+
+            </div>
+
+
+            <label>
+                Unit
+
+                <select id="productUnit">
+
+                    <option>
+                        pcs
+                    </option>
+
+                    <option>
+                        pack
+                    </option>
+
+                    <option>
+                        bag
+                    </option>
+
+                    <option>
+                        bottle
+                    </option>
+
+                    <option>
+                        packet
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <button
+                type="submit"
+                class="primary-button full-width"
+            >
+                Add product
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script
+    src="{{ url_for('static', filename='js/products.js') }}"
+></script>
+
+{% endblock %}

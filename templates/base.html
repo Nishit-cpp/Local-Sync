@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}LocalSync{% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app-shell">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                L
+            </div>
+
+            <div>
+
+                <div class="brand-name">
+                    LocalSync
+                </div>
+
+                <div class="brand-subtitle">
+                    Bharat Edition
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <div class="sidebar-label">
+                WORKSPACE
+            </div>
+
+
+            <a
+                href="{{ url_for('dashboard') }}"
+                class="nav-link {% if request.endpoint == 'dashboard' %}active{% endif %}"
+            >
+
+                <span>⌂</span>
+
+                Overview
+
+            </a>
+
+
+            <a
+                href="{{ url_for('customers') }}"
+                class="nav-link {% if request.endpoint == 'customers' %}active{% endif %}"
+            >
+
+                <span>◉</span>
+
+                Customers
+
+            </a>
+
+
+            <a
+                href="{{ url_for('products') }}"
+                class="nav-link {% if request.endpoint == 'products' %}active{% endif %}"
+            >
+
+                <span>▣</span>
+
+                Products
+
+            </a>
+
+
+            <a
+                href="{{ url_for('orders') }}"
+                class="nav-link {% if request.endpoint == 'orders' %}active{% endif %}"
+            >
+
+                <span>↗</span>
+
+                Orders
+
+            </a>
+
+
+            <a
+                href="{{ url_for('reminders') }}"
+                class="nav-link {% if request.endpoint == 'reminders' %}active{% endif %}"
+            >
+
+                <span>◷</span>
+
+                Smart Restock
+
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <div class="sidebar-label">
+                AUTOMATION
+            </div>
+
+
+            <div class="automation-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+
+                    <strong>
+                        LocalSync Engine
+                    </strong>
+
+                    <small>
+                        Running normally
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="merchant-mini">
+
+                <div class="merchant-avatar">
+                    SP
+                </div>
+
+                <div>
+
+                    <strong>
+                        Sharma Provisions
+                    </strong>
+
+                    <small>
+                        Kirana Store
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+
+</div>
+
+
+<div id="toast-container"></div>
+
+
+<script
+    src="{{ url_for('static', filename='js/app.js') }}"
+></script>
+
+
+{% block scripts %}
+
+{% endblock %}
+
+
+</body>
+
+</html>

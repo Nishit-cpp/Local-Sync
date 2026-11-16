@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}
+LocalSync · Smart Restock
+{% endblock %}
+
+
+{% block content %}
+
+<header class="page-header">
+
+    <div>
+
+        <div class="eyebrow">
+            ADAPTIVE RESTOCK ENGINE
+        </div>
+
+        <h1>
+            Smart Restock
+        </h1>
+
+        <p>
+            LocalSync predicts when customers may need their next purchase.
+        </p>
+
+    </div>
+
+
+    <div class="engine-badge">
+
+        <span></span>
+
+        Adaptive engine active
+
+    </div>
+
+</header>
+
+
+<section class="reminder-layout">
+
+
+    <div class="panel">
+
+        <div class="panel-heading">
+
+            <div>
+
+                <div class="eyebrow">
+                    CUSTOMER CYCLES
+                </div>
+
+                <h2>
+                    Consumption tracking
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="remindersList"
+            class="reminders-list"
+        >
+
+            <div class="loading-state">
+                Loading customer cycles...
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel explanation-panel">
+
+        <div class="eyebrow">
+            HOW IT WORKS
+        </div>
+
+        <h2>
+            Adaptive cycle
+        </h2>
+
+
+        <div class="algorithm-step">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <div>
+
+                <strong>
+                    Track purchase
+                </strong>
+
+                <p>
+                    LocalSync records the customer's purchase date and expected consumption cycle.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="algorithm-step">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <div>
+
+                <strong>
+                    Trigger reminder
+                </strong>
+
+                <p>
+                    When the estimated cycle is reached, the customer receives a restock prompt.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="algorithm-step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <div>
+
+                <strong>
+                    Learn from response
+                </strong>
+
+                <p>
+                    If the customer still has stock, LocalSync extends the cycle by five days.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="demo-note">
+
+            <strong>
+                Demo rule
+            </strong>
+
+            <p>
+                Current prototype uses an explainable rule-based adaptive algorithm.
+                It can later be replaced with a statistical prediction model.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script
+    src="{{ url_for('static', filename='js/reminders.js') }}"
+></script>
+
+{% endblock %}

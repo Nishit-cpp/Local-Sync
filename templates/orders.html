@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}
+LocalSync · Orders
+{% endblock %}
+
+
+{% block content %}
+
+<header class="page-header">
+
+    <div>
+
+        <div class="eyebrow">
+            ORDER MANAGEMENT
+        </div>
+
+        <h1>
+            Orders
+        </h1>
+
+        <p>
+            Orders generated from customer interactions.
+        </p>
+
+    </div>
+
+</header>
+
+
+<section class="panel">
+
+    <div class="panel-heading">
+
+        <div>
+
+            <h2>
+                Recent orders
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        ORDER
+                    </th>
+
+                    <th>
+                        CUSTOMER
+                    </th>
+
+                    <th>
+                        PRODUCT
+                    </th>
+
+                    <th>
+                        FULFILMENT
+                    </th>
+
+                    <th>
+                        TOTAL
+                    </th>
+
+                    <th>
+                        STATUS
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="ordersTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script
+    src="{{ url_for('static', filename='js/orders.js') }}"
+></script>
+
+{% endblock %}

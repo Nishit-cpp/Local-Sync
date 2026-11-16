@@ -1,0 +1,377 @@
+{% extends "base.html" %}
+
+{% block title %}
+LocalSync · Overview
+{% endblock %}
+
+
+{% block content %}
+
+<header class="page-header">
+
+    <div>
+
+        <div class="eyebrow">
+            STORE OVERVIEW
+        </div>
+
+        <h1>
+            Good evening, Sharma Provisions.
+        </h1>
+
+        <p>
+            Here's what needs your attention today.
+        </p>
+
+    </div>
+
+
+    <div class="header-actions">
+
+        <div class="live-status">
+
+            <span></span>
+
+            System online
+
+        </div>
+
+        <div class="profile-avatar">
+            NS
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- STATS -->
+
+<section class="stats-grid">
+
+
+    <div class="stat-card">
+
+        <div class="stat-label">
+
+            Active customers
+
+            <span>◉</span>
+
+        </div>
+
+        <div
+            class="stat-number"
+            id="customersCount"
+        >
+            0
+        </div>
+
+        <div class="stat-description">
+            Customers in your database
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-label">
+
+            Products tracked
+
+            <span>▣</span>
+
+        </div>
+
+        <div
+            class="stat-number"
+            id="productsCount"
+        >
+            0
+        </div>
+
+        <div class="stat-description">
+            Inventory items
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-label">
+
+            Pending orders
+
+            <span>↗</span>
+
+        </div>
+
+        <div
+            class="stat-number"
+            id="ordersCount"
+        >
+            0
+        </div>
+
+        <div class="stat-description">
+            Orders waiting for action
+        </div>
+
+    </div>
+
+
+    <div class="stat-card accent-card">
+
+        <div class="stat-label">
+
+            Restock due
+
+            <span>◷</span>
+
+        </div>
+
+        <div
+            class="stat-number"
+            id="remindersCount"
+        >
+            0
+        </div>
+
+        <div class="stat-description">
+            Customers may need a reminder
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TWO COLUMN AREA -->
+
+<section class="dashboard-grid">
+
+
+    <!-- RESTOCK -->
+
+    <div class="panel">
+
+        <div class="panel-heading">
+
+            <div>
+
+                <div class="eyebrow">
+                    SMART RESTOCK
+                </div>
+
+                <h2>
+                    Needs attention
+                </h2>
+
+            </div>
+
+            <a
+                href="{{ url_for('reminders') }}"
+                class="small-button"
+            >
+                View all
+            </a>
+
+        </div>
+
+
+        <div id="dashboardReminders">
+
+            <div class="loading-state">
+                Loading reminders...
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RECENT ORDERS -->
+
+    <div class="panel">
+
+        <div class="panel-heading">
+
+            <div>
+
+                <div class="eyebrow">
+                    RECENT ACTIVITY
+                </div>
+
+                <h2>
+                    Latest orders
+                </h2>
+
+            </div>
+
+            <a
+                href="{{ url_for('orders') }}"
+                class="small-button"
+            >
+                View all
+            </a>
+
+        </div>
+
+
+        <div id="recentOrders">
+
+            <div class="loading-state">
+                Loading orders...
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<!-- QUICK ACTIONS -->
+
+<section class="panel quick-panel">
+
+    <div class="panel-heading">
+
+        <div>
+
+            <div class="eyebrow">
+                QUICK ACTIONS
+            </div>
+
+            <h2>
+                Store tools
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="quick-actions">
+
+
+        <a
+            href="{{ url_for('customers') }}"
+            class="quick-action"
+        >
+
+            <div class="quick-icon">
+                +
+            </div>
+
+            <div>
+
+                <strong>
+                    Add customer
+                </strong>
+
+                <small>
+                    Register a new shopper
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <a
+            href="{{ url_for('products') }}"
+            class="quick-action"
+        >
+
+            <div class="quick-icon">
+                +
+            </div>
+
+            <div>
+
+                <strong>
+                    Add product
+                </strong>
+
+                <small>
+                    Add an inventory item
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <a
+            href="{{ url_for('reminders') }}"
+            class="quick-action"
+        >
+
+            <div class="quick-icon">
+                ◷
+            </div>
+
+            <div>
+
+                <strong>
+                    Smart reminders
+                </strong>
+
+                <small>
+                    Check upcoming restocks
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <a
+            href="{{ url_for('orders') }}"
+            class="quick-action"
+        >
+
+            <div class="quick-icon">
+                ↗
+            </div>
+
+            <div>
+
+                <strong>
+                    Manage orders
+                </strong>
+
+                <small>
+                    View customer orders
+                </small>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<footer class="page-footer">
+
+    LocalSync Bharat Edition · Kirana Edition · v1.0
+
+</footer>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script
+    src="{{ url_for('static', filename='js/dashboard.js') }}"
+></script>
+
+{% endblock %}

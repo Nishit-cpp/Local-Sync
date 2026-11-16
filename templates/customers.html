@@ -1,0 +1,241 @@
+{% extends "base.html" %}
+
+{% block title %}
+LocalSync · Customers
+{% endblock %}
+
+
+{% block content %}
+
+<header class="page-header">
+
+    <div>
+
+        <div class="eyebrow">
+            CUSTOMER DATABASE
+        </div>
+
+        <h1>
+            Customers
+        </h1>
+
+        <p>
+            Manage your local customer relationships.
+        </p>
+
+    </div>
+
+
+    <button
+        class="primary-button"
+        onclick="openCustomerModal()"
+    >
+        + Add customer
+    </button>
+
+</header>
+
+
+<section class="panel">
+
+    <div class="toolbar">
+
+        <div class="search-box">
+
+            <span>⌕</span>
+
+            <input
+                type="text"
+                id="customerSearch"
+                placeholder="Search customers..."
+                oninput="loadCustomers()"
+            >
+
+        </div>
+
+
+        <div class="toolbar-info">
+
+            <span id="customerTotal">
+                0 customers
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        CUSTOMER
+                    </th>
+
+                    <th>
+                        PHONE
+                    </th>
+
+                    <th>
+                        LANGUAGE
+                    </th>
+
+                    <th>
+                        ADDRESS
+                    </th>
+
+                    <th>
+                        STATUS
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="customersTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- MODAL -->
+
+<div
+    id="customerModal"
+    class="modal hidden"
+>
+
+    <div class="modal-card">
+
+        <div class="modal-header">
+
+            <div>
+
+                <div class="eyebrow">
+                    NEW CUSTOMER
+                </div>
+
+                <h2>
+                    Add customer
+                </h2>
+
+            </div>
+
+            <button
+                class="close-button"
+                onclick="closeCustomerModal()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form
+            id="customerForm"
+            onsubmit="createCustomer(event)"
+        >
+
+            <label>
+                Customer name
+
+                <input
+                    id="customerName"
+                    required
+                    placeholder="e.g. Amit Sharma"
+                >
+
+            </label>
+
+
+            <label>
+                Phone number
+
+                <input
+                    id="customerPhone"
+                    required
+                    placeholder="e.g. 9876543210"
+                >
+
+            </label>
+
+
+            <label>
+                Preferred language
+
+                <select id="customerLanguage">
+
+                    <option>
+                        Hindi
+                    </option>
+
+                    <option>
+                        English
+                    </option>
+
+                    <option>
+                        Telugu
+                    </option>
+
+                    <option>
+                        Tamil
+                    </option>
+
+                    <option>
+                        Kannada
+                    </option>
+
+                    <option>
+                        Marathi
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+                Address
+
+                <input
+                    id="customerAddress"
+                    placeholder="e.g. Green Park Society"
+                >
+
+            </label>
+
+
+            <button
+                type="submit"
+                class="primary-button full-width"
+            >
+                Add customer
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script
+    src="{{ url_for('static', filename='js/customers.js') }}"
+></script>
+
+{% endblock %}
